@@ -1,0 +1,25 @@
+# 使用说明：
+# 1) 将本文件另存为同目录下的 config.yaml 后再运行服务
+# 2) 按需修改 ai.base_url、ai.api_key、ai.model 等字段
+
+server:
+  port: 8080           # 本地服务端口
+  host: "127.0.0.1"   # 本地服务主机
+
+# AI回答配置
+ai:
+  base_url: "https://api.openai.com/v1/chat/completions"  # OpenAI兼容接口地址（示例）
+  api_key: ""                                             # AI接口密钥（留空或通过环境变量注入）
+  model: "gpt-4o-mini"                                    # 模型名称（示例）
+  system_prompt: |
+    你是一名专业的答题助手，请根据题目内容和选项快速给出最可能的正确答案，并在必要时给出简要解释。
+  prompt_template: |
+    题目：{{title}}
+    选项：{{options}}
+    类型：{{type}}
+
+    请给出最可能的正确答案，并在必要时给出简要解释。
+  temperature: 0.2    # 随机性（0~2）
+  top_p: 1.0          # nucleus sampling（0~1）
+  max_tokens: 512     # 最大输出token
+  timeout: 30         # 请求超时时间（秒）
