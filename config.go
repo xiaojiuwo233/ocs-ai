@@ -24,6 +24,7 @@ type Config struct {
 		Temperature    float64 `mapstructure:"temperature"`
 		TopP           float64 `mapstructure:"top_p"`
 		MaxTokens      int     `mapstructure:"max_tokens"`
+		ThinkingMode   string  `mapstructure:"thinking_mode"`
 		Timeout        int     `mapstructure:"timeout"`
 	} `mapstructure:"ai"`
 }

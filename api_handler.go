@@ -143,6 +143,13 @@ func (h *APIHandler) handleAIQuery(c *gin.Context, req *QueryRequest) {
 		payload["max_tokens"] = h.config.AI.MaxTokens
 	}
 
+	thinkingMode := strings.TrimSpace(h.config.AI.ThinkingMode)
+	if thinkingMode == "enabled" || thinkingMode == "disabled" {
+		payload["thinking"] = map[string]string{
+			"type": thinkingMode,
+		}
+	}
+
 	body, err := json.Marshal(payload)
 	if err != nil {
 		log.Printf("序列化AI请求失败: %v", err)
