@@ -47,6 +47,7 @@ ai:
   temperature: 0.2  # 随机性
   top_p: 1.0  # nucleus sampling
   max_tokens: 512  # 最大输出token
+  thinking_mode: ""   # DeepSeek思考模式：留空则不设置该参数，"enabled"开启思考，"disabled"关闭思考
   timeout: 30  # 请求超时时间（秒）
 `
 		if err := os.WriteFile(configPath, []byte(defaultConfig), 0644); err != nil {
